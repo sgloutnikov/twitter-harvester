@@ -1,0 +1,2 @@
+pymongo==3.3.1
+python-twitter==3.3
