@@ -75,4 +75,4 @@ for tweet in stream:
     # DB Inserts
     db.users.replace_one({'_id': user['_id']}, user, upsert=True)
     result = db.tweets.insert_one(tweet)
-    logger.info(result)
+    print(result)
