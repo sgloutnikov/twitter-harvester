@@ -68,10 +68,10 @@ for tweet in stream:
     user.pop('id')
     # Place
     if tweet['place']:
-        # TODO: Check if id is unique per place and if data will be lost if replace is used
         place = tweet.pop('place')
-        tweet['place_id'] = place['id']
-        db.places.insert_one(place)
+        place['_id'] = place.pop['id']
+        tweet['place_id'] = place['_id']
+        db.places.replace_one({'_id': place['_id']}, place, upsert=True)
     # DB Inserts
     db.users.replace_one({'_id': user['_id']}, user, upsert=True)
     result = db.tweets.insert_one(tweet)
